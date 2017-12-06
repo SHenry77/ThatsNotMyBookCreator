@@ -1,6 +1,7 @@
 package com.learning.thatsnotmybook;
 
 public class Main {
+    // TODO parse args to try find the relevant  input
     public static void main(String[] args){
         String[]nouns = new String[]{"cover", "page", "text", "story", "plot"};
         String[]adjectives = new String[]{"rough", "smooth", "short", "interesting", "predictable"};

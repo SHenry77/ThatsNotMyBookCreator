@@ -12,6 +12,7 @@ public class Book {
     private String[] adjectives;
 
     Book(String titularNoun, String[] nouns, String[] adjectives){
+        validate(titularNoun, nouns, adjectives);
         this.titularNoun = titularNoun;
         this.nouns = nouns;
         this.adjectives = adjectives;
@@ -56,6 +57,34 @@ public class Book {
             builder.append(" ");
         }
         return builder.toString();
+    }
+
+    private void validate(String titularNoun, String[] nouns, String[] adjectives){
+        if( titularNoun == null){
+            throw new NullPointerException("titularNoun must not be null");
+        }
+        if( nouns == null ){
+            throw new NullPointerException("nouns must not be null");
+        } else {
+            for(String noun: nouns){
+                if(noun == null){
+                    throw new IllegalArgumentException("nouns must not contain nulls");
+                }
+            }
+        }
+        if( adjectives == null ){
+            throw new NullPointerException("adjectives must not be null");
+        } else {
+            for(String adj: adjectives){
+                if(adj == null){
+                    throw new IllegalArgumentException("adjectives must not contain nulls");
+                }
+            }
+        }
+
+        if( nouns.length != adjectives.length){
+            throw new IllegalArgumentException("nouns and adjectives must be the same length");
+        }
     }
 
 }
